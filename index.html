@@ -64,7 +64,7 @@
 			type:"POST",
 			url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAQhjZJdFsW3c5C5fpQF8sfUNh-V3_eULg",
 			success: function(success){
-				console.log(success);
+				
 				var cnt = {lat:success.location.lat,lng:success.location.lng};
 				//setter(cnt.lat, cnt.lng);
 				map.setCenter(cnt);
@@ -74,16 +74,7 @@
 	
 	}
 	as();
-	/*function setter(cnt){
-		$.ajax({
-			type:"POST",
-			url:"https://m.ctbook.in/locainfo",
-			data:cnt,
-			success: function(success){
-				console.log(success);
-			}
-		});
-	}*/
+	
 	
 		
 	var map, infoWindow;
