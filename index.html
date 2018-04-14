@@ -136,17 +136,17 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-			var marker = new google.maps.Marker({
-    position: pos,
-    title:"Hello Loc!"
-});
-marker.setMap(map);
+			
 			
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
             map.setCenter(pos);
-			
+			var marker = new google.maps.Marker({
+    position: pos,
+    title:"Hello Loc!"
+});
+marker.setMap(map);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
