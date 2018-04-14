@@ -103,19 +103,23 @@
 </section>
 <script>
 
-var cv;
-	function showPosition(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(function(position){
-                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-                console.log(positionInfo);
+	
+	function as() {
+		$.ajax({
+			type:"POST",
+			url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAQhjZJdFsW3c5C5fpQF8sfUNh-V3_eULg",
+			success: function(success){
+				console.log(success);
 				
-            });
-        } else{
-            alert("Sorry, your browser does not support HTML5 geolocation.");
-        }
-    }
-	showPosition();
+				map.setCenter({lat:success.location.lat,lng:success.location.lng);
+				
+			}
+		});
+	
+	}
+	
+	
+	
 		
 		var map, infoWindow;
       function initMap() {
@@ -132,7 +136,7 @@ var cv;
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+			as();
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
