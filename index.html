@@ -104,21 +104,18 @@
 <script>
 
 	
-	/*function as() {
-		$.ajax({
-			type:"POST",
-			url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAQhjZJdFsW3c5C5fpQF8sfUNh-V3_eULg",
-			success: function(success){
-				console.log(success);
-				$('input[type="text"]').val(success.location.lat+' '+success.location.lng);
+	function showPosition(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                console.log(positionInfo);
 				
-			}
-		});
-	
-	}
-	
-	as();*/
-	
+            });
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+	showPosition();
 		
 		var map, infoWindow;
       function initMap() {
