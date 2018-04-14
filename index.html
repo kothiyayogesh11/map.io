@@ -143,10 +143,11 @@
             infoWindow.open(map);
             map.setCenter(pos);
 			var marker = new google.maps.Marker({
-    position: pos,
-    title:"Hello Loc!"
-});
-marker.setMap(map);
+				position: pos,
+				 map: map,
+				title:"Hello Loc!"
+			});
+			
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
